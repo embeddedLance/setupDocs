@@ -20,6 +20,32 @@ sudo apt install mongodb-org -y
 
 https://docs.mongodb.com/manual/tutorial/deploy-replica-set-for-testing/
 
+Mongo DB conf:
+```
+rsconf = {
+  _id: "rs0",
+  members: [
+    {
+     _id: 0,
+     host: "192.168.100.10:27017"
+    },
+    {
+     _id: 1,
+     host: "192.168.100.10:27018"
+    },
+    {
+     _id: 2,
+     host: "192.168.100.10:27019"
+    }
+   ]
+}
+```
+Initiate Mongo conf:
+```
+rs.initiate( rsconf )
+```
+
+
 Setup Redis
 ```
 wget http://download.redis.io/releases/redis-5.0.5.tar.gz
@@ -29,3 +55,12 @@ make
 # start redis server
 src/redis-server
 ```
+
+Install mail-catcher
+```
+sudo apt install ruby ruby-dev
+   99  sudo gem install mailcatcher
+  100  sudo apt-get install libsqlite3-dev
+  101  sudo gem install mailcatcher
+```
+
